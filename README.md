@@ -35,5 +35,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 ### Video Project
-[`Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router`](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
+[Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
 
