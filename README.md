@@ -33,7 +33,35 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Hidden Route Folder ( )
+You can create a folder with its name between "()" so you can organize the routes in another folders without this new folder becoming part of the routing path
+* Ex
+>
+Dashboard
+>>
+(Auth)
+>>>
+Login  
+Register
+>>>
+>>
+>
 
-### Video Project
+
+The route will be: `Dashboard/Login`
+NOT: `Dashboard/Auth/Login`
+
+## Utils Pages
+
+### Layout Page "layout.jsx"
+It's the main layout that grabs your components and you can use any layout insede your page folder also.
+
+### Loading Page "loading.jsx"
+You can show the page you want while waiting for the path of the page that was accessed to load.
+
+### Error Page "error.jsx"
+You can show any default error page that arise when you try to enter the path of the page that was selected.
+
+#### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
 
