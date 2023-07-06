@@ -1,3 +1,31 @@
 .wordColor{
     color: #9f31df;
 }
+
+.container {
+    border: 2px solid #9f31df;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout {
+    padding: 6px;
+    border: none;
+    background-color: #53c28b;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}

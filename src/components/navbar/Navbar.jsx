@@ -41,16 +41,16 @@ const links = [
 
 const Navbar = () => {
   return (
-    <div>
-        <Link href="/">Abraham</Link>
+    <div className={styles.container}>
+        <Link href="/" className={styles.logo}>abrahamTech</Link>
 
-        <div>
+        <div className={styles.links}>
             {links.map((link) => (
-                <Link key={link.id} href={link.url}>{link.title}</Link>
+                <Link key={link.id} href={link.url} className={styles.link}>{link.title}</Link>
             ))}
 
             <button 
-              className={styles.wordColor}
+              className={styles.logout}
               onClick={() => {
                 console.log("Logged Out")
               }}

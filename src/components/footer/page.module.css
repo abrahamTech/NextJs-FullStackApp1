@@ -1,3 +1,11 @@
 .wordColor{
     color: #313ddf;
 }
+
+.container {
+    border: 2px solid #313ddf;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
