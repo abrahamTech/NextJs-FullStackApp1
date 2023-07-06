@@ -36,16 +36,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Hidden Route Folder ( )
 You can create a folder with its name between "()" so you can organize the routes in another folders without this new folder becoming part of the routing path
 * Ex
->
-Dashboard
->>
-(Auth)
->>>
-Login  
-Register
->>>
->>
->
+> Dashboard
+>>(Auth)
+>>>Login  
+>>>Register
 
 
 The route will be: `Dashboard/Login`
@@ -61,6 +55,21 @@ You can show the page you want while waiting for the path of the page that was a
 
 ### Error Page "error.jsx"
 You can show any default error page that arise when you try to enter the path of the page that was selected.
+
+## Rendering
+
+### Type 1: Server Side (By Default)
+The Server Render Everything and returns the page.
+
+The server receives the Request and returns a Response that includes only a HTML file.
+
+### Type 2: Client Side Rendering
+The Browser Render Everything.
+
+The server receives the Request and returns a Response that includes a HTML and JavaScript file.
+
+If you need **Client Interaction** you need to use it. For that, you need to write `"use client` to convert into a CSR.
+
 
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
