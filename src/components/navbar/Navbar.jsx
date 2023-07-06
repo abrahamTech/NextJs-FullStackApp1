@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 
+import styles from "./page.module.css";
+
 //Links Details
 const links = [
     {
@@ -47,9 +49,12 @@ const Navbar = () => {
                 <Link key={link.id} href={link.url}>{link.title}</Link>
             ))}
 
-            <button onClick={() => {
-              console.log("Logged Out")
-            }}>
+            <button 
+              className={styles.wordColor}
+              onClick={() => {
+                console.log("Logged Out")
+              }}
+            >
               Logout
             </button>
         </div>
