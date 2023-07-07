@@ -70,6 +70,67 @@ The server receives the Request and returns a Response that includes a HTML and 
 
 If you need **Client Interaction** you need to use it. For that, you need to write `"use client` to convert into a CSR.
 
+## Images
+
+### Import like Image Label (Recommended)
+You need to add like an Image component native from nextJs. But you need to add `width={}` and `height={}` properties.
+
+Ex:
+```bash
+import Image from "next/image";
+
+<Image src="/1.png" width={20} height={20} className={styles.icon} alt="User Facebook" />
+```
+
+Also you can add the Image component in a `div` label (This div must have width and height properties in a css) so you can only add the property `fill={true}`.
+
+Ex:
+```bash
+import Image from "next/image";
+<div className={styles.imgContainer}>
+    <Image src="/1.png" fill={true} className={styles.icon} alt="User Facebook" />
+</div>
+
+CSS FILE
+.imgContainer {
+    width: 500px;
+    height: 500px;
+}
+```
+
+
+## Import like Component
+You need to import like component from it's source folder.
+Ex: 
+```bash
+import Hero from 'public/hero.png';
+```
+
+And add between `{ }` the component name
+```bash
+<Image src={Hero} alt='' className={styles.img} />
+```
+
+
+### Import from URL
+You can import images from internet, if you add as a variable the link of the image in the `next.config.js` file. 
+Ex:
+```bash
+const nextConfig = {
+    images: {
+        domains: [
+            "images.pexels.com"
+        ],
+    },
+}
+```
+
+And in the page you need to add the URL in the **src** property `<Image />` component.
+Ex:
+```bash
+<Image  width={50} height={75} src="https://images.pexels.com/photos/879537/pexels-photo-879537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt='Sculpture' />
+```
+
 
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
