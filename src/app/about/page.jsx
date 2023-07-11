@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./page.module.css";
 import Image from 'next/image';
+import Button from '@/components/Button/Button';
 
 const About = () => {
     return (
@@ -26,6 +27,7 @@ const About = () => {
                 <div className={styles.item}>
                     <h1 className={styles.title}>What We Do?</h1>
                     <p className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nisi rerum inventore soluta. <br />Atque cumque adipisci nobis vel, a magni neque. Blanditiis nobis culpa, modi officia consequuntur ducimus. Natus, omnis.</p>
+                    <Button url="/contact" text="Contact" />
                 </div>
             </div>
         </div>
