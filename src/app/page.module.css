@@ -20,8 +20,18 @@
 
 .img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 500px;
+  object-fit: contain;
+  animation: move 3s infinite ease-in alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
 }
 
 .desc {
