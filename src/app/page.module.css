@@ -13,7 +13,7 @@
 
 .title {
   font-size: 70px;
-  background: linear-gradient(to bottom, #42da86, #bbb);
+  background: linear-gradient(to bottom, #127de0, #bbb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -27,15 +27,4 @@
 .desc {
   font-size: 24px;
   font-weight: 300;
-}
-
-.button {
-  padding: 20px;
-  cursor: pointer;
-  background-color: #42da86;
-  border: none;
-  border-radius: 5px;
-  width: max-content;
-  font-size: 16px;
-  color: #fff;
 }

@@ -22,11 +22,14 @@ const About = () => {
                 <div className={styles.item}>
                     <h1 className={styles.title}>Who Are We?</h1>
                     <p className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nisi rerum inventore soluta, atque cumque adipisci nobis vel, a magni neque. Blanditiis nobis culpa, modi officia consequuntur ducimus. Natus, omnis.
-                    <br /> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, adipisci corporis! Adipisci sit quos necessitatibus, facere blanditiis dignissimos odit suscipit animi nihil aliquam? Facilis dolor sint, eveniet deserunt ea impedit!</p>
+                    <br /><br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, adipisci corporis! Adipisci sit quos necessitatibus, facere blanditiis dignissimos odit suscipit animi nihil aliquam? Facilis dolor sint, eveniet deserunt ea impedit!</p>
                 </div>
                 <div className={styles.item}>
                     <h1 className={styles.title}>What We Do?</h1>
-                    <p className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nisi rerum inventore soluta. <br />Atque cumque adipisci nobis vel, a magni neque. Blanditiis nobis culpa, modi officia consequuntur ducimus. Natus, omnis.</p>
+                    <p className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error nisi rerum inventore soluta. <br />Atque cumque adipisci nobis vel, a magni neque. Blanditiis nobis culpa, modi officia consequuntur ducimus. Natus, omnis.
+                    <br /><br />- Creative Illustrations
+                    <br /><br />- Mobile Apps
+                    <br /><br />- Dynamic Websites</p>
                     <Button url="/contact" text="Contact" />
                 </div>
             </div>

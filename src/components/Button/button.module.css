@@ -1,10 +1,11 @@
 .container {
-    padding: 20px;
+    padding: 18px;
     cursor: pointer;
-    background-color: #42da86;
+    /* background-color: #127de0; */
+    background: linear-gradient(to bottom, #127de0, #1253e0);
     border: none;
     border-radius: 5px;
     width: max-content;
-    font-size: 16px;
+    font-size: 20px;
     color: #fff;
 }
