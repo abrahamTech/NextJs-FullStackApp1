@@ -9,6 +9,7 @@
     padding: 2px;
     position: relative;
     cursor: pointer;
+    user-select: none;
 }
 
 .icon {
