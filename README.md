@@ -203,6 +203,41 @@ const Paragraph = () => {
 
 ```
 
+## FETCH Data on SERVER side
+
+We changed our components into async components and we will directly fetch the data on the server
+
+We used [JSON Placeholder](https://jsonplaceholder.typicode.com/posts) for the blog page.jsx file
+
+### Static Data Fetching
+
+If the DATA **NEVER** changes
+
+By default, `fetch` will automatically fetch and cache data indefinitely.
+
+```bash
+fetch('https://...') // cache: 'force-cache' is the default
+```
+
+### Revalidating Data Fetching
+
+If the DATA **CHANGES** but **NOT TOO OFTEN**
+
+To revalidate cached data at a timed interval, you can use the `next.revalidate` option in `fetch()` to set the `cache` lifetime of a resource (in seconds).
+
+```bash
+fetch('https://...', { next: { revalidate: 10 } })
+```
+
+### Dynamic Data Fetching
+
+If the DATA **CHANGES ALL THE TIME** 
+
+To fetch fresh data on every `fetch` request, use the `cache: 'no-store'` option.
+
+```bash
+fetch('https://...', { cache: 'no-store' })
+```
 
 
 #### Video Project
