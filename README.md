@@ -99,7 +99,7 @@ CSS FILE
 ```
 
 
-## Import like Component
+### Import like Component
 You need to import like component from it's source folder.
 Ex: 
 ```bash
@@ -130,6 +130,79 @@ Ex:
 ```bash
 <Image  width={50} height={75} src="https://images.pexels.com/photos/879537/pexels-photo-879537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt='Sculpture' />
 ```
+
+
+## Context API
+* 1 Create Folder "/Context"
+Good practices indicate that you should create a folder called `context` and save the Contexts there.
+
+* 2 File "InfoContextProvider.js"
+
+Inside this file will be the context provider
+Note: The "children" prompt will allow you to add more child components to the component
+
+```bash
+import { createContext } from "react"
+
+export const InfoContext = createContext();
+
+export const InfoProvider = ({ children }) => {
+    return (
+        <InfoContext.Provider value={10}>
+            //The "children" prompt will allow you to add more child components to this component
+            {children}
+        </InfoContext.Provider>
+    )
+}
+```
+
+* 3 Import to the MAIN Component, the Context Provider Component
+The ContextProvider is a Component in which we are going to put the components that need the context values.
+
+If wee need to add the values from the Context in the  main component `App`, so that the component inside it `Paragraph` can use the values ​​from the context.
+
+To the component that will provide the values from the component to another component(s) we import the `InfoProvider`
+
+```bash
+import { InfoProvider } from "@/context/InfoContextProvider";
+
+const App = () => {
+    return(
+        <InfoProvider>
+            <div className="App">
+                <Paragraph />
+            </div>
+        </InfoProvider>
+    )
+}
+```
+
+* 4 Component that use the Context's values
+
+If wee need to use the values from the Context in the  component `Paragraph`, we will write the next code.
+
+The value will be saved in the variable `ValueContext` because we only have one value in the context.
+
+To the component that will use the values from the component, we import the `InfoContext`
+
+```bash
+import { useContext } from 'react';
+import { InfoContext } from '@/context/InfoContextProvider';
+
+const Paragraph = () => {
+
+    const ValueContext = useContext(InfoContext);
+
+    return (
+        <>
+            <div>Paragraph</div>
+            <p> Number: {ValueContext}</p>
+        </div>
+    )
+}
+
+```
+
 
 
 #### Video Project

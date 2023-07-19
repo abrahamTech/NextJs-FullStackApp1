@@ -5,6 +5,7 @@ import { createContext, useState } from "react"
 
 export const ThemeContext = createContext();
 
+//The "children" prompt will allow you to add more child components to the component
 //It's the same "children" as in the layout.js file
 export const ThemeProvider = ({ children }) => {
     
@@ -18,7 +19,9 @@ export const ThemeProvider = ({ children }) => {
     return (
         <ThemeContext.Provider value={{ toggle, mode }}>
         
-            <div className={`theme ${mode}`}> { children }</div>
+            <div className={`theme ${mode}`}> 
+                { children }
+            </div>
 
         </ThemeContext.Provider>
     );
