@@ -240,6 +240,33 @@ fetch('https://...', { cache: 'no-store' })
 ```
 
 
+## SWR Hook (Fetch Data)
+
+It is highly recommended if you are fetching data on the `client-side`. It handles caching, revalidation, focus tracking, refetching on intervals, and more.
+
+For more information on using SWR, check out the (SWR docs)[https://swr.vercel.app/docs/getting-started]
+
+1.- Instal SWR module
+```bash
+npm install swr
+```
+
+2.- fetcher
+You need to create a `fetcher` function, which is just a wrapper of the native `fetch`
+```bash
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+```
+
+3.- useSWR()
+Then you can import useSWR and start using it inside any function components:
+
+```bash
+const { data, error, isLoading} = useSWR("https://url.com", fetcher);
+```
+
+Info from: (Client-side Fetching NextJS Documentation)[https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side]
+
+
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
 
