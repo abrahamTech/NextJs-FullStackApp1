@@ -267,6 +267,62 @@ const { data, error, isLoading} = useSWR("https://url.com", fetcher);
 Info from: (Client-side Fetching NextJS Documentation)[https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side]
 
 
+## MongoDB DataBase
+This library allows us to create our MOngoDB models and create CRUD operations.
+
+* 1.- Instal Mongoose module
+```bash
+npm install mongoose
+```
+
+(Mongoose Documentation)[https://mongoosejs.com/]
+
+* 2.- Create .env file
+
+This file is really importatnt because we are going to hide our Secret Keys here `.env`
+
+* 3.- Var MONGO
+
+We created a variable `MONGO` equal to the URL from MongoDB DataBase / Connect / Drivers Ex: `mongodb+srv://<user>:<password>@cluster0.tfsjotp.mongodb.net/<databaseName>?retryWrites=`
+
+Replace `<user>` and `<password>` with the user and password for the user that you are using. Ensure any option params are URL encoded.
+
+And also change `<databaseName>` to the name you want, in this example is `test`.
+
+* 4.- DataBase File (db.js)
+
+We created a js file called `db.js` and using `Mongoose` we are going to try to connect to MongoDB.
+
+I selected the Error Handling mode, you need to write an `async function` and then the code with the `try{} catch{}`
+
+```bash
+try {
+  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+} catch (error) {
+  handleError(error);
+}
+```
+
+You need to replace the MongoDB URL with the `MONGO variable` declared in he `.env file`
+```bash
+process.env.MONGO
+```
+
+(How to Connect Info)[https://mongoosejs.com/docs/connections.html]
+
+* 5.- Use Mongo DB 6
+
+Go to the package.json file and change for the stable version 6 `6.11.4` and the write in the terminal `npm install`
+
+* Create Schemas
+
+I created User Schemas in the `User.js` and `Post.js` files from `models` folder.
+
+Mongoose schemas support a timestamps option. If you set `timestamps: true`, Mongoose will add two properties of type Date to your schema:
+
+createdAt: a date representing when this document was created
+updatedAt: a date representing when this document was last updated
+
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
 
