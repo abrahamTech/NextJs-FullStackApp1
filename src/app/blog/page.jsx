@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  const res = await fetch("http://localhost:3000/api/posts", {
     //next: { revalidate: 10} // It will revalidate the data in every 10 seconds
     cache: "no-store", //It will fresh data on every fetch request
   });

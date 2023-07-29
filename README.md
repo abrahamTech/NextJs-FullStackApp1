@@ -323,6 +323,36 @@ Mongoose schemas support a timestamps option. If you set `timestamps: true`, Mon
 createdAt: a date representing when this document was created
 updatedAt: a date representing when this document was last updated
 
+## API Posts Route
+We create the API posts route, for create the info in MongoDb Atlas that we are going to show in the **`'post' collection`** from the **`'test' database`**  that we created in the `.env` file (...tp.mongodb.net//test). 
+
+### Insert Info for localhost:3000/api/posts
+
+In the `Cluster 0` we go to `Collections` and we will see empty the **`'test' database`** with the **`'post' collection`**, so we `insert documents` in it.
+Info:
+```bash
+title:"Test1"
+desc:"Desc"
+content:"Content test"
+image:"https://images.pexels.com/photos/130879/pexels-photo-130879.jpeg?auto=…"
+username:"John"
+```
+
+This is for fetch the route `fetch("http://localhost:3000/api/posts"` in the `blog page`, so we need to also change the form that we return the **NextResponse** for a `JSON format` in the `route.js` file from the `api/posts` route, because we are taking a `response Json` in the page from the **Blog** page `return res.json();`.
+
+Before:
+```bash
+return new NextResponse(posts, {status: 200});
+```
+
+After:
+```bash
+return new NextResponse(JSON.stringify(posts), {status: 200});
+```
+
+**Note:**
+If you change the data from this collection once you have compiled the project 1 time, you need to restart your application. 
+
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
 
