@@ -353,6 +353,35 @@ return new NextResponse(JSON.stringify(posts), {status: 200});
 **Note:**
 If you change the data from this collection once you have compiled the project 1 time, you need to restart your application. 
 
+## Metadata
+Config-based Metadata options with generateMetadata and the static metadata object. 
+
+We use the `Static Metadata` in  `layout.js` file and `Dynamic Metadata` in `Blog[id] page.jsx` file
+
+```bash
+import { Metadata } from 'next'
+ 
+// Static metadata
+export const metadata: Metadata = {
+  title: '...',
+  description: '...',
+}
+ 
+// or Dynamic metadata
+export async function generateMetadata({ params }) {
+  return {
+    title: '...',
+    description: '...',
+  }
+}
+```
+
+**Notes:**
+- The metadata object and generateMetadata function exports are only supported in Server Components.
+- You cannot export both the metadata object and generateMetadata function from the same route segment.
+
+(Metadata Object Documentation)[https://nextjs.org/docs/app/api-reference/functions/generate-metadata]
+
+
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
-
