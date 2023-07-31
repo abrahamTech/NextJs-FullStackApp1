@@ -244,7 +244,7 @@ fetch('https://...', { cache: 'no-store' })
 
 It is highly recommended if you are fetching data on the `client-side`. It handles caching, revalidation, focus tracking, refetching on intervals, and more.
 
-For more information on using SWR, check out the (SWR docs)[https://swr.vercel.app/docs/getting-started]
+For more information on using SWR, check out the [SWR docs](https://swr.vercel.app/docs/getting-started)
 
 1.- Instal SWR module
 ```bash
@@ -264,7 +264,7 @@ Then you can import useSWR and start using it inside any function components:
 const { data, error, isLoading} = useSWR("https://url.com", fetcher);
 ```
 
-Info from: (Client-side Fetching NextJS Documentation)[https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side]
+Info from: [Client-side Fetching NextJS Documentation](https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side)
 
 
 ## MongoDB DataBase
@@ -275,7 +275,7 @@ This library allows us to create our MOngoDB models and create CRUD operations.
 npm install mongoose
 ```
 
-(Mongoose Documentation)[https://mongoosejs.com/]
+[Mongoose Documentation](https://mongoosejs.com/)
 
 * 2.- Create .env file
 
@@ -308,7 +308,7 @@ You need to replace the MongoDB URL with the `MONGO variable` declared in he `.e
 process.env.MONGO
 ```
 
-(How to Connect Info)[https://mongoosejs.com/docs/connections.html]
+[How to Connect Info](https://mongoosejs.com/docs/connections.html)
 
 * 5.- Use Mongo DB 6
 
@@ -380,8 +380,25 @@ export async function generateMetadata({ params }) {
 - The metadata object and generateMetadata function exports are only supported in Server Components.
 - You cannot export both the metadata object and generateMetadata function from the same route segment.
 
-(Metadata Object Documentation)[https://nextjs.org/docs/app/api-reference/functions/generate-metadata]
+[Metadata Object Documentation](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
 
+
+## Authenticate User (AuthJs)
+Auth.js is a complete open-source authentication solution for web applications.
+
+- 1.- Install the library
+```bash
+npm install next-auth
+```
+- 2.- Create auth endpoint
+Create AuthJs endpoint in API folder `src/app/api/auth/[...nextauth]`.
+
+Using the folder `[...nextauth]` handles all these endpoints ` .../signin or .../signout or .../session or .../register , etc.` but you can also create your endpoint folder.
+
+In this proyect we have `register` endpoint folder because I want to use different endpoint for creating users.
+
+[AuthJs Documentation](https://authjs.dev/getting-started/introduction)
+[OAuth authentication Documentation](https://authjs.dev/getting-started/oauth-tutorial)
 
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
