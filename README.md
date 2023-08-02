@@ -397,8 +397,84 @@ Using the folder `[...nextauth]` handles all these endpoints ` .../signin or ...
 
 In this proyect we have `register` endpoint folder because I want to use different endpoint for creating users.
 
+- 3.- Creating the server config
+Create the following [API route file](https://nextjs.org/docs/api-routes/dynamic-api-routes#catch-all-api-routes). This route contains the necessary configuration for NextAuth.js, as well as the dynamic route handler:
+
 [AuthJs Documentation](https://authjs.dev/getting-started/introduction)
 [OAuth authentication Documentation](https://authjs.dev/getting-started/oauth-tutorial)
+
+## Add Google Cloud Functions
+ Add Google Cloud Functions to get `clientId` and `clientSecret` that we need in the server config.
+
+ - 1.- Go to Google Cloud
+ [Google Cloud](https://cloud.google.com/?hl=es)
+
+ - 2.- Go to Google Cloud Console 
+[Console of Google CLoud](https://console.cloud.google.com/getting-started?hl=es&_ga=2.219124762.287019653.1690776989-1443403584.1686636828&authuser=2)
+
+ - 3.- Go to APIs and Services
+ [Enabled APIs & services](https://console.cloud.google.com/apis/dashboard?authuser=2&hl=es&project=my-project-12345-390221)
+
+ - 4.- Go to Credentials
+ [Credentials](https://console.cloud.google.com/apis/credentials?authuser=2&hl=es&project=my-project-12345-390221)
+
+ Create an `OAuth client ID` with the next info:
+ `Authorized JavaScript origins: ` http://localhost:3000
+ `Authorized redirect URLs: ` http://localhost:3000/api/auth/callback/google
+
+ Once you create de OAuth client you will see the `Client ID` and `Client secret`. Copy and add in your `.env file`.
+
+ - 5.- Create Secret ID
+ In your project root, create a .env.local file and add the `NEXTAUTH_SECRET` environment variable.
+
+ - 6.- Wrap Session Provider
+ NextAuth.js provides `useSession()` - a React Hooks to access the session data and status. To use it first you'll need to expose the session context - `<SessionProvider />` - at the top level of your application:
+
+ Wrap application Session Provider in `layout.js file`
+
+ ```bash
+ import { SessionProvider } from "next-auth/react"
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  )
+}
+ ```
+
+ - 7.- Create Auth Provider Component
+ You need to create an `Auth Provider` component for use un the layout and also you can use the `metadata`, if you you don't use the meta data you can onl include `"use client"` in the file and its ready.
+
+ **Note Errors:**
+
+ - *app-index.js:31 [next-auth][error][CLIENT_FETCH_ERROR]* 
+ It's because I haven't created the URL in the `.env` file
+ *Solution:*
+ -Step 1.- Create `NEXTAUTH_URL = "http://localhost:3000"` in the `.env` file, but when you deploy your application, you should change here this URL.
+ Doc: [Solution Link](https://next-auth.js.org/errors#client_fetch_error)
+
+ -Step 2.- Change the type of export of the `route.js` file, because we are using App Router.
+ ```bash
+ export default NextAuth({...})
+
+by
+
+ const handler = NextAuth({...})
+
+ export { handler as GET, handler as POST};
+ ```
+
+ -When pass the `username and password` is going to be a `POST method`
+ -When fetch the session, `username` information is going to be a `GET method`
+
+## Consuming the session
+
+You can use the `useSession` hook from anywhere in your application (E.g. in a header component). Behind the scenes, the hook will connect to the `<SessionProvider />` to read the current user session. 
 
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).

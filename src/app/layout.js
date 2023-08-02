@@ -4,6 +4,8 @@ import { Inter, Poppins } from 'next/font/google'
 import Footer from '@/components/footer/Footer'
 import { ThemeProvider } from '../context/ThemeContext';
 
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
+
 const inter = Inter({ subsets: ['latin'] });
 //New Font fromm Google Fonts (Use in the html return -> <body className={poppins.className}>)
 const poppins = Poppins({ weight: "400", subsets: ['latin']});
@@ -20,12 +22,15 @@ export default function RootLayout({ children }) {
 
         <ThemeProvider>
           
+          <AuthProvider>
+
           <div className="container">
             <Navbar />
             {children}
             <Footer />
           </div>
         
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
