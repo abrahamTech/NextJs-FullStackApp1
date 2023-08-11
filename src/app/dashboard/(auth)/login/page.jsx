@@ -1,9 +1,14 @@
+"use client"
+
 import React from 'react';
 import styles from "./page.module.css";
+import { signIn } from 'next-auth/react';
 
 const Login = () => {
   return (
-    <div className={styles.wordColor}>Login</div>
+    <div className={styles.wordColor}>
+      <button onClick={() => signIn("google")}>Login with Google</button>
+    </div>
   )
 }
 

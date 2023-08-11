@@ -48,7 +48,7 @@ const Dashboard = () => {
   const { data, error, isLoading} = useSWR("https://jsonplaceholder.typicode.com/posts", fetcher);
 
 
-  console.log(data)
+  //console.log(data)
 
 
   return (
