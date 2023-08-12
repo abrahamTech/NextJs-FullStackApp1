@@ -24,4 +24,4 @@ const userSchema = new Schema (
 // timestamps: true -> Is a sequence of characters that denote the time and date (or one of them) in which a certain event occurred.
 
 //It's going to create an user collection in our database
-export default mongoose.model("User", userSchema);
+export default mongoose.models.User || mongoose.model("User", userSchema);

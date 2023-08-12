@@ -476,5 +476,13 @@ by
 
 You can use the `useSession` hook from anywhere in your application (E.g. in a header component). Behind the scenes, the hook will connect to the `<SessionProvider />` to read the current user session. 
 
+## BcryptJS
+
+This code is based on javascript-bcrypt and uses crypto to create random byte arrays.
+
+Installing the Package
+
+`npm install bcryptjs` or `yarn add bcryptjs`
+
 #### Video Project
 [Next.js Full Tutorial for Beginners | Next.js 13 Full Stack App Using App Router](https://www.youtube.com/watch?v=VE8BkImUciY&t=344s).
