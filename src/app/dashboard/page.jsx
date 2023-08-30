@@ -7,6 +7,8 @@ import useSWR from "swr";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
+import Image from 'next/image';
+
 const Dashboard = () => {
 
   /* //FETCH with useEffect() Hook
@@ -46,7 +48,7 @@ const Dashboard = () => {
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-  const { data, error, isLoading} = useSWR("https://jsonplaceholder.typicode.com/posts", fetcher);
+  const { data, error, isLoading} = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher);
 
   //console.log(data)
     
@@ -59,9 +61,58 @@ const Dashboard = () => {
     router?.push("/dashboard/login");
   }
 
+  //handleSubmit
+  const handleSubmit = async (e) => {
+    //For don't refresh the page with the formsubmit
+    e.preventDefault();
+
+    const title = e.target[0].value;
+    const desc = e.target[1].value;
+    const img = e.target[2].value;
+    const content = e.target[3].value;
+
+    try {
+      await fetch("/api/posts", {
+        method: "POST",
+        body: JSON.stringify({
+          title,
+          desc,
+          img,
+          content,
+          username: session.data.user.name,
+        }),
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   if(session.status === "authenticated") {
     return (
-      <div className={styles.wordColor}>Dashboard</div>
+      <div className={styles.container}>
+        <div className={styles.posts}>
+          {isLoading 
+            ? "Loading..." 
+            : data.map(post => (
+            <div className={styles.post} key={post.id}>
+              <div className={styles.imgContainer}>
+                <Image src={post.img} alt="" width={400} height={200} />
+              </div>
+              <h2 className={styles.postTitle}>{post.title}</h2>
+              <span className={styles.delete}>X</span>
+            </div>
+          ))}
+        </div>
+
+        <form action="" className={styles.new} onSubmit={handleSubmit}>
+          <h1>Add New Post</h1>
+          <input className={styles.input} type="text" placeholder="Title" />
+          <input className={styles.input} type="text" placeholder="Desc" />
+          <input className={styles.input} type="text" placeholder="Image" />
+          <textarea className={styles.textArea} placeholder="Content" cols="30" rows="10"></textarea>
+          <button className={styles.button}>Send</button>
+        </form>
+      </div>
     )
   }
 }
