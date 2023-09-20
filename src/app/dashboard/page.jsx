@@ -48,7 +48,7 @@ const Dashboard = () => {
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-  const { data, error, isLoading} = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher);
+  const { data, mutate, error, isLoading} = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher);
 
   //console.log(data)
     
@@ -81,7 +81,20 @@ const Dashboard = () => {
           content,
           username: session.data.user.name,
         }),
-      })
+      });
+      mutate(); //revalidate our data
+      e.target.reset();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/posts/${id}`, {
+        method: "DELETE",
+      });
+      mutate();
     } catch (error) {
       console.log(error);
     }
@@ -96,10 +109,10 @@ const Dashboard = () => {
             : data.map(post => (
             <div className={styles.post} key={post.id}>
               <div className={styles.imgContainer}>
-                <Image src={post.img} alt="" width={400} height={200} />
+                <Image src={post.img} alt="" width={200} height={100} />
               </div>
               <h2 className={styles.postTitle}>{post.title}</h2>
-              <span className={styles.delete}>X</span>
+              <span className={styles.delete} onClick={() => handleDelete(post._id)}>X</span>
             </div>
           ))}
         </div>
